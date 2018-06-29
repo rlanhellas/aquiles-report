@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="aquilesReportDS" transaction-type="JTA">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <jta-data-source>java:jboss/datasources/aquilesReportDS</jta-data-source>
+        <class>br.com.aquiles.report.bean.SRQueue</class>
+        <class>br.com.aquiles.report.bean.SRPrint</class>
+        <class>br.com.aquiles.report.bean.SRReport</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <shared-cache-mode>NONE</shared-cache-mode>
+        <properties>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+            <property name="hibernate.cache.use_second_level_cache"
+                      value="false"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
