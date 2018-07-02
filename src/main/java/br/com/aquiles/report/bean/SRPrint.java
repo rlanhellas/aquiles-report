@@ -4,20 +4,18 @@ import br.com.aquiles.persistence.bean.AbstractEntityAtu;
 import br.com.aquiles.report.enums.EnumSRFileType;
 import br.com.aquiles.report.utils.CompressGzipUtils;
 import br.com.aquiles.report.utils.CustomDateSerializer;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.commons.collections.CollectionUtils;
 import org.hibernate.annotations.JoinColumnOrFormula;
 import org.hibernate.annotations.JoinColumnsOrFormulas;
 import org.hibernate.annotations.JoinFormula;
 
 import javax.persistence.*;
-import java.beans.Transient;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -29,8 +27,8 @@ import java.util.HashMap;
  */
 @Entity
 @Table(name = "sr_print")
-@Getter
-@Setter
+@lombok.Getter
+@lombok.Setter
 @JsonIgnoreProperties({ "novo", "selected", "uuid", "deletable", "editable" })
 public class SRPrint extends AbstractEntityAtu {
 
@@ -82,11 +80,11 @@ public class SRPrint extends AbstractEntityAtu {
     @Column
     private String error;
 
-    @Transient
+    @javax.persistence.Transient
     @JsonIgnore
     private ArrayList beans;
 
-    @Transient
+    @javax.persistence.Transient
     @JsonIgnore
     private HashMap<String, Object> params;
 
